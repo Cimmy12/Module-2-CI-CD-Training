@@ -1,8 +1,10 @@
-# CI-CD-Training
-Test repository for CI-CD Training
+Testify Automation School
+# Learning Test Automation
+Test repository 
 
 # Table of Contents
 
-- Installation
+- TAS Module 2  Setting up CICD Pipeline/Framework
+- TAS Module 3A Learning JavaScript
 
-# How to Install
+
