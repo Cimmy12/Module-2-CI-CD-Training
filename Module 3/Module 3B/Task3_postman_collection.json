@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "9b0bb6bc-8d86-4a68-abc8-9cc68ebe5482",
+		"name": "Task3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28732940"
+	},
+	"item": [
+		{
+			"name": "All Books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response =pm.response.json();\r",
+							"const nonFictionBooks = response.filter((book) => book.available === true);\r",
+							"const book = nonFictionBooks [0];\r",
+							"\r",
+							"pm.test (\"books found\"), ()=> {\r",
+							"  pm.expect(book).to.be.an(\"object\");\r",
+							"  pm.expect(book.available).to.eql(true);  \r",
+							"};\r",
+							"pm.test(\"books found\", ()=> {\r",
+							"    pm.expect(book.name).to.eql(\"Untamed\")\r",
+							"})\r",
+							"pm.test(\"book id\", ()=>{\r",
+							"    pm.expect(book.id).to.eql(5)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://simple-books-api.glitch.me/books?type=non-fiction",
+					"protocol": "https",
+					"host": [
+						"simple-books-api",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "non-fiction"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/books?type=fiction"
+		}
+	]
+}
